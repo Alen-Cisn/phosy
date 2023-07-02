@@ -1,0 +1,9 @@
+
+.Display {
+	grid-column: 2 / 6;
+	grid-row: 2 / 10;
+	background-color: var(--background-color);
+	border-top-left-radius: 7px;
+	border-left: 5px solid;	
+	border-top: 5px solid;
+}

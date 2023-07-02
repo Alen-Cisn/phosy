@@ -1,0 +1,9 @@
+
+.ToolBox {
+	grid-column: 1;
+	grid-row: 2 / 8;
+	background-color: var(--background-color);
+	border-top-right-radius: 7px;
+	border-right: 5px solid;
+	border-top: 5px solid;
+}
