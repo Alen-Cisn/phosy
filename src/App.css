@@ -2,10 +2,12 @@
 	text-align: center;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(9, 1fr);
 	grid-gap: 5px;
-	grid-auto-rows: minmax(100px, auto);
 	width: 100vw;
 	height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
 }
 
 .App > div {

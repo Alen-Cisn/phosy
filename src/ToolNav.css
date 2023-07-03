@@ -1,0 +1,17 @@
+
+.ToolNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ToolNav > button{
+	width: 50%;
+	height: 40px;
+	border: none;
+	background-color: var(--ll-primary-color);
+}
+
+.ToolNav > button:hover{
+	background-color: var(--l-primary-color);
+}

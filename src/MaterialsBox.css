@@ -1,0 +1,17 @@
+.MaterialsBox {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    height: 100%;
+}
+
+.Material {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.addMaterial {
+    margin-top: auto;
+    padding: 10px;
+}
