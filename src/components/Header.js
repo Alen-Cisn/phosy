@@ -1,5 +1,5 @@
 import './Header.css';
-import mainLogo from './resources/phosy.png';
+import mainLogo from '../resources/phosy.png';
 
 function Header() {
 	return (

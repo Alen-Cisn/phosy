@@ -1,0 +1,26 @@
+
+.ToolBox {
+	grid-column: 1;
+	grid-row: 2 / 10;
+	background-color: var(--background-color);
+
+	display: flex;
+	flex-flow: column;
+}
+
+.Materials, .Objects {
+    overflow-y: scroll;
+    overflow-x: hidden;
+	max-height: 70%;
+}
+
+.ToolBox > div:last-child > div:last-child {
+	border-top: #33333352 solid 1px;
+}
+
+.ToolBox > div:last-child > button{
+	border: none;
+	background-color: var(--ll-primary-color);
+    margin-top: auto;
+    padding: 1em;
+}

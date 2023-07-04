@@ -1,0 +1,44 @@
+
+.ToolNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ToolNav > button{
+	width: 50%;
+	height: 40px;
+	border: none;
+	background-color: var(--lll-primary-color);
+	cursor: pointer;
+	border-bottom:  var(--llll-primary-color) solid 4px ;
+	border-top: var(--lll-primary-color) solid 4px;
+	margin-top: -4px;
+	padding-bottom: 7px;
+}
+
+.ToolNav > button.selected {
+	border-top: var(--d-primary-color) solid 4px;
+	border-bottom: none;
+	background-color: var(--ll-primary-color);
+	margin-top: 3px;
+	padding-bottom: 3px;
+
+}
+
+.ToolNav > button:hover{
+	background-color: var(--ll-primary-color);
+}
+
+.ToolNav > button.nonSelected:hover{
+	border-top: var(--ll-primary-color) solid 4px;
+}
+
+.actions {
+    margin-right: 17px;
+}
+
+.actions > i {
+    margin: 0 5px;
+    cursor: pointer;
+}

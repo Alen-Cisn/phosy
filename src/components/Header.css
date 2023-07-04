@@ -3,7 +3,7 @@
 	grid-column: 1 / 6;
 	grid-row: 1;
 	background-color: var(--background-color);
-	border-bottom: 5px solid ;
+	/* border-bottom: 5px solid ; */
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;

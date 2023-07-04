@@ -9,9 +9,12 @@
     padding: 10px;
     width: 100%;
     text-align: left;
+    display: flex;
+	justify-content: space-between;
 }
 
-.addMaterial {
-    margin-top: auto;
-    padding: 10px;
+.deleteIcon::before, .editionIcon::before {
+    content: "o";
+    display: inline-block;
+    margin-left: 10px;
 }

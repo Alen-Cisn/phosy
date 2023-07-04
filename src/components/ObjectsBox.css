@@ -11,7 +11,11 @@
     text-align: left;
 }
 
-.addObject {
-    margin-top: auto;
-    padding: 10px;
+.objectAtions {
+    margin-right: 17px;
+}
+
+.objectActions > i {
+    margin: 0 5px;
+    cursor: pointer;
 }

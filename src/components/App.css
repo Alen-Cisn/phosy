@@ -8,8 +8,10 @@
 	height: 100vh;
 	max-width: 100vw;
 	max-height: 100vh;
+	background-color: var(--l-primary-color);
 }
 
 .App > div {
-	border-color: var(--l-primary-color);
+	/* border-color: var(--l-primary-color);
+	border-style: solid;  */
 }

@@ -1,8 +1,12 @@
 :root {
-  --d-primary-color: #916733;
+  --ddd-primary-color:#77562d;
+  --dd-primary-color: #916733;
+  --d-primary-color: #de8922;
   --primary-color: #E28A20;
   --l-primary-color: #eca651;
-  --ll-primary-color: #f2cb9b;
+  --ll-primary-color: #f1bd7e;
+  --lll-primary-color: #f2cb9b;
+  --llll-primary-color: #f4ddc1;
   --secondary-color: #C5D8D1;
   --background-color: #F4EDEA;
   --contrast-color: #1E152A;

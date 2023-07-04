@@ -8,7 +8,7 @@ import MaterialsBox from './MaterialsBox';
 
 function ToolBox() {
 
-	const selectedTab = useSelector((state) => state.tabSelectReducer.value)
+	const selectedTab = useSelector((state) => state.tabSelect.value)
 
 
 	return (
@@ -17,7 +17,6 @@ function ToolBox() {
 			{ selectedTab === 'materials' ? 
 				<MaterialsBox/> :
 				<ObjectsBox/>
-				
 			}
 		</div>
 	);
