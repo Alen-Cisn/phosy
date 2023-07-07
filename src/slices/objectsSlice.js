@@ -4,25 +4,25 @@ export const objectsSlice = createSlice({
 	name: 'objects',
 	initialState: {
 		value: [{
-			id: 1,
-			name: 'Object 1',
+			id: 0,
+			name: 'Object 0',
 			type: 'sphere',
 			radius: 1,
 			center: [0, 0, 0],
-			material: 1
+			material: 0
 		}]
 	},
 	reducers: {
 		addObject: (state) => {
             // the array will be ordered by id, this gets the greatest id in memory
 			let arr = [...state.value];
-            let greatestID = arr.length ? arr.at(-1).id + 1 : 1;
 			arr.push({
-				id: greatestID,
-				name: 'Object ' + greatestID,
+				id: arr.length,
+				name: 'Object ' + arr.length,
 				type: 'sphere',
-				radius: 1,
-				center: [0, 0, 0]
+				radius: arr.length,
+				center: [0, 0, 0],
+				material: 0
 			});
 			state.value = arr;
 		},

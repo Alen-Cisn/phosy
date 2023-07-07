@@ -9,12 +9,13 @@ function ObjectsBox() {
 	const dispatch = useDispatch();
 	const objects = useSelector((state) => state.objects.value);
 	
+	const materials = useSelector((state) => state.materials.value);
 	return (
 		<div className='ObjectsBox'>
 			<div className='Objects'>
 				{
 					objects.map((e) => 
-						<div className='Material'>
+						<div className='Material' key={e.id}>
 							<span>
 								{e.name}
 							</span>

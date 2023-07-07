@@ -4,7 +4,20 @@ import './ToolBox.css';
 import ToolNav from './ToolNav';
 import ObjectsBox from './ObjectsBox';
 import MaterialsBox from './MaterialsBox';
+import PropertiesBox from './PropertiesBox';
 
+function renderSelected(selectedTab) {
+	switch (selectedTab) {
+		case "materials":
+			return <MaterialsBox/>
+		case "objects":
+			return <ObjectsBox/>
+		case "properties":
+			return <PropertiesBox/>
+		default:
+			return;
+	}
+}
 
 function ToolBox() {
 
@@ -14,10 +27,7 @@ function ToolBox() {
 	return (
 		<div className='ToolBox'>
 			<ToolNav/>
-			{ selectedTab === 'materials' ? 
-				<MaterialsBox/> :
-				<ObjectsBox/>
-			}
+			{ renderSelected(selectedTab) }
 		</div>
 	);
 }

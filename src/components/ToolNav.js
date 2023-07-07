@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { selectMaterials, selectObjects } from '../slices/tabSelectSlice'
+import { selectMaterials, selectObjects, selectProperties } from '../slices/tabSelectSlice'
 import './ToolNav.css';
 
 function ToolNav() {
@@ -20,6 +20,12 @@ function ToolNav() {
 				aria-label="Select materials"
 				onClick={() => dispatch(selectObjects())}>
 				Objects
+			</button>
+			<button
+				className={selectedTab === 'properties' ? 'selected' : 'nonSelected'}
+				aria-label="Select properties"
+				onClick={() => dispatch(selectProperties())}>
+				Properties
 			</button>
 		</div>
 	);

@@ -18,9 +18,11 @@
 	border-top: #33333352 solid 1px;
 }
 
-.ToolBox > div:last-child > button{
+.ToolBox > div:last-child > button {
 	border: none;
 	background-color: var(--ll-primary-color);
     margin-top: auto;
     padding: 1em;
+	cursor: pointer;
 }
+

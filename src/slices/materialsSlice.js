@@ -1,30 +1,37 @@
+// import { useSelector } from 'react-redux';
 import { createSlice } from '@reduxjs/toolkit'
 
 export const materialsSlice = createSlice({
 	name: 'materials',
 	initialState: {
 		value: [{
-			id: 1,
-			name: 'Material 1',
-			type: 'lambertian'
+			id: 0,
+			name: 'Material 0',
+			type: 'lambertian',
+			color: '#A0A000'
 		}]
 	},
 	reducers: {
 		addMaterial: (state) => {
-            // the array will be ordered by id, this gets the greatest id in memory
 			let arr = [...state.value];
-            let greatestID = arr.length ? arr.at(-1).id + 1 : 1;
 			arr.push({
-				id: greatestID,
-				name: 'Material ' + greatestID,
-				type: 'lambertian'
+				id: arr.length,
+				name: 'Material ' + arr.length,
+				type: 'lambertian',
+				color: '#A0A0A0'
 			});
 			state.value = arr;
 		},
 		deleteMaterial: (state, action) => {
-			let arr = [...state.value];
-			arr.splice(arr.findIndex((e) => e.id === action.payload), 1);
-			state.value = arr;
+			// const objects = useSelector((s) => s.objects.value);
+			//we won't let delete the material if it's being used
+			// if (!objects.find(e => e.material === action.payload)) {
+				let arr = [...state.value];
+				arr.splice(arr.findIndex((e) => e.id === action.payload), 1);
+				state.value = arr;
+			// } else {
+				//don't
+			// }
 		},
         editMaterial: (state, action) => {
 			let arr = [...state.value];

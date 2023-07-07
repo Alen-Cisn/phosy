@@ -14,7 +14,7 @@ function MaterialsBox() {
 			<div className='Materials'>
 				{
 					materials.map((e) => 
-						<div className='Material'>
+						<div className='Material' key={e.id}>
 							<span>
 								{e.name}
 							</span>

@@ -11,11 +11,14 @@ export const tabSelectSlice = createSlice({
 		},
 		selectObjects: (state) => {
 			state.value = 'objects'
+		},
+		selectProperties: (state) => {
+			state.value = 'properties'
 		}
 	}
 })
 
 // Action creators are generated for each case reducer function
-export const { selectMaterials, selectObjects } = tabSelectSlice.actions
+export const { selectMaterials, selectObjects, selectProperties } = tabSelectSlice.actions
 
 export default tabSelectSlice.reducer

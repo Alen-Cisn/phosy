@@ -1,4 +1,3 @@
-
 .ToolNav {
 	display: flex;
 	justify-content: space-between;
@@ -13,25 +12,25 @@
 	cursor: pointer;
 	border-bottom:  var(--llll-primary-color) solid 4px ;
 	border-top: var(--lll-primary-color) solid 4px;
-	margin-top: -4px;
+	margin-top: 0;
 	padding-bottom: 7px;
 }
 
 .ToolNav > button.selected {
 	border-top: var(--d-primary-color) solid 4px;
+	margin-top: 0;
 	border-bottom: none;
 	background-color: var(--ll-primary-color);
-	margin-top: 3px;
 	padding-bottom: 3px;
+}
 
+.ToolNav > button.nonSelected {
+	border-top: var(--lll-primary-color) solid 4px;
+	margin-top: -4px;
 }
 
 .ToolNav > button:hover{
-	background-color: var(--ll-primary-color);
-}
-
-.ToolNav > button.nonSelected:hover{
-	border-top: var(--ll-primary-color) solid 4px;
+	filter: brightness(102%);
 }
 
 .actions {
