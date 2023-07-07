@@ -1,0 +1,9 @@
+.backgroundEdition {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	background-color: #000000A0;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}

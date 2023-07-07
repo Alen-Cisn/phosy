@@ -7,14 +7,15 @@ import './PropertiesBox.css';
 function PropertiesBox() {
 	const dispatch = useDispatch();
 	const properties = useSelector((state) => state.properties);
-	
+	const maxXAspectRatio = 14;
+	const maxYAspectRatio = 24;
   
 	const handleAspectRaitoYChange = (e) => {
-		dispatch(changeRatioY(e.target.value));
+		dispatch(changeRatioY(e.target.value > maxYAspectRatio ? maxYAspectRatio : (e.target.value < 1 ? 1 : e.target.value)));
 	}
 
 	const handleAspectRaitoXChange = (e) => {
-		dispatch(changeRatioX(e.target.value));
+		dispatch(changeRatioX(e.target.value > maxXAspectRatio ? maxXAspectRatio : (e.target.value < 1 ? 1 : e.target.value)));
 	}
 
 	const handleFovChange = (e) => {
@@ -27,8 +28,8 @@ function PropertiesBox() {
 			</div>
 			<div className='cameraProperties'>
 			</div>
-			<div>
-				<h3 className='propertiesCategory'>
+			<div className='propertiesCategory'>
+				<h3 className='propertiesCategoryTitle'>
 					Aspect ratio
 				</h3> 
 				<div>
