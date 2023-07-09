@@ -1,18 +1,18 @@
 .ObjectsBox {
-    display: flex;
-    flex-flow: column;
-    justify-content: left;
-    height: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: left;
+	height: 100%;
 }
 
 .Object {
-    padding: 10px;
-    width: 100%;
-    text-align: left;
+	padding: 10px;
+	width: 100%;
+	text-align: left;
 }
 
 
-.objectActions > i {
-    margin: 0 5px;
-    cursor: pointer;
+.objectActions>i {
+	margin: 0 5px;
+	cursor: pointer;
 }

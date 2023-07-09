@@ -19,9 +19,9 @@ export const propertiesSlice = createSlice({
 		changeRatioY: (state, action) => {
 			state.aspectRatio.y = action.payload;
 		},
-        changeFov: (state, action) => {
+		changeFov: (state, action) => {
 			state.aspectRatio.fov = action.payload;
-        }
+		}
 	}
 })
 

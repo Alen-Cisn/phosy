@@ -11,7 +11,28 @@
 	background-color: var(--l-primary-color);
 }
 
-.App > div {
-	/* border-color: var(--l-primary-color);
-	border-style: solid;  */
+select ,
+select option {
+	border: 2px solid var(--d-primary-color);
+	outline: none;
+	background-color: var(--ll-primary-color);
+	-webkit-appearance: none;
+	margin: 0;
+	border-radius: 0;
+}
+
+select {
+	position: relative;
+	display: inline-block;
+}
+
+select select:focus ,
+select select:hover{
+	background-color: var(--primary-color);
+}
+select option {
+	width: 100%;
+}
+select option:checked {
+	background-color: var(--primary-color);
 }

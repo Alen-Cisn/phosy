@@ -10,7 +10,7 @@
 	border: none;
 	background-color: var(--lll-primary-color);
 	cursor: pointer;
-	border-bottom:  var(--llll-primary-color) solid 4px ;
+	border-bottom: var(--llll-primary-color) solid 4px ;
 	border-top: var(--lll-primary-color) solid 4px;
 	margin-top: 0;
 	padding-bottom: 7px;
@@ -34,10 +34,10 @@
 }
 
 .actions {
-    margin-right: 17px;
+ 	margin-right: 17px;
 }
 
 .actions > i {
-    margin: 0 5px;
-    cursor: pointer;
+	margin: 0 5px;
+	cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 
 import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 
@@ -29,7 +30,9 @@ function ObjectsBox() {
 			</div>
 			<button className='addObject'
 				onClick={() => dispatch(addObject())}>
-				Add object
+				<FormattedMessage 
+				id="objectsAdd"
+				defaultMessage="Loading..."/>
 			</button>
 		</div>
 	);

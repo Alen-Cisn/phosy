@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 
 import { addMaterial, deleteMaterial, editMaterial } from '../slices/materialsSlice';
-import EditionBox from  './editionBox';
+import EditionBox from './editionBox';
 import './MaterialsBox.css';
 
 function MaterialsBox() {
@@ -54,7 +55,9 @@ function MaterialsBox() {
 				</div>
 				<button className='addMaterial'
 					onClick={() => dispatch(addMaterial())}>
-					Add material
+						<FormattedMessage 
+						id="materialsAdd"
+						defaultMessage="Loading..."/>
 				</button>
 				{actionState.action && 
 					<EditionBox handleKeyDown={handleKeyDown.bind(this)}>

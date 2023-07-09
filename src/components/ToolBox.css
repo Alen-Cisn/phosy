@@ -9,8 +9,8 @@
 }
 
 .Materials, .Objects {
-    overflow-y: scroll;
-    overflow-x: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	max-height: 70%;
 }
 
@@ -21,8 +21,8 @@
 .ToolBox > div:last-child > button {
 	border: none;
 	background-color: var(--ll-primary-color);
-    margin-top: auto;
-    padding: 1em;
+	margin-top: auto;
+	padding: 1em;
 	cursor: pointer;
 }
 

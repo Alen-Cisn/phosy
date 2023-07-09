@@ -1,20 +1,21 @@
 .MaterialsBox {
-    display: flex;
-    flex-flow: column;
-    justify-content: left;
-    height: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: left;
+	height: 100%;
 }
 
 .Material {
-    padding: 10px;
-    width: 100%;
-    text-align: left;
-    display: flex;
+	padding: 10px;
+	width: 100%;
+	text-align: left;
+	display: flex;
 	justify-content: space-between;
 }
 
-.deleteIcon::before, .editionIcon::before {
-    content: "o";
-    display: inline-block;
-    margin-left: 10px;
+.deleteIcon::before,
+.editionIcon::before {
+	content: "o";
+	display: inline-block;
+	margin-left: 10px;
 }

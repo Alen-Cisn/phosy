@@ -14,13 +14,14 @@ export const objectsSlice = createSlice({
 	},
 	reducers: {
 		addObject: (state) => {
-            // the array will be ordered by id, this gets the greatest id in memory
 			let arr = [...state.value];
+			// the array will be ordered by id, this gets the greatest id in memory
+			const nextID = arr.at(-1).id + 1;
 			arr.push({
-				id: arr.length,
-				name: 'Object ' + arr.length,
+				id: nextID,
+				name: 'Object ' + nextID,
 				type: 'sphere',
-				radius: arr.length,
+				radius: 1,
 				center: [0, 0, 0],
 				material: 0
 			});
@@ -31,11 +32,11 @@ export const objectsSlice = createSlice({
 			arr.splice(arr.findIndex((e) => e.id === action.payload), 1);
 			state.value = arr;
 		},
-        editObject: (state, action) => {
+		editObject: (state, action) => {
 			let arr = [...state.value];
 			arr[arr.findIndex((e) => e.id === action.payload.id)] = action.payload;
 			state.value = arr;
-        }
+		}
 	}
 })
 

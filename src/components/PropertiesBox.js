@@ -9,7 +9,7 @@ function PropertiesBox() {
 	const properties = useSelector((state) => state.properties);
 	const maxXAspectRatio = 14;
 	const maxYAspectRatio = 24;
-  
+
 	const handleAspectRaitoYChange = (e) => {
 		dispatch(changeRatioY(e.target.value > maxYAspectRatio ? maxYAspectRatio : (e.target.value < 1 ? 1 : e.target.value)));
 	}

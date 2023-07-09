@@ -14,9 +14,11 @@ export const materialsSlice = createSlice({
 	reducers: {
 		addMaterial: (state) => {
 			let arr = [...state.value];
+			// the array will be ordered by id, this gets the greatest id in memory
+			const nextID = arr.at(-1).id + 1;
 			arr.push({
-				id: arr.length,
-				name: 'Material ' + arr.length,
+				id: nextID,
+				name: 'Material ' + nextID,
 				type: 'lambertian',
 				color: '#A0A0A0'
 			});
@@ -33,11 +35,11 @@ export const materialsSlice = createSlice({
 				//don't
 			// }
 		},
-        editMaterial: (state, action) => {
+		editMaterial: (state, action) => {
 			let arr = [...state.value];
 			arr[arr.findIndex((e) => e.id === action.payload.id)] = action.payload;
 			state.value = arr;
-        }
+		}
 	}
 })
 
