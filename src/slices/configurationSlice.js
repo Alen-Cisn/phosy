@@ -3,12 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import loadTranslation from '../i18n';
 
-const lang = window.navigator.language.substring(0, 2);
-let messages = {};
-
-loadTranslation(lang).then((e) => {
-	messages = e;
-});
 
 const changeLang = createAsyncThunk(
 	'configuration/changeLang',
@@ -25,8 +19,8 @@ export const configurationSlice = createSlice({
 	name: 'configuration',
 	initialState: {
 		langSettings: {
-			lang,
-			messages
+			lang: window.navigator.language.substring(0, 2),
+			messages: {}
 		}
 	},
 	extraReducers: (builder) => {

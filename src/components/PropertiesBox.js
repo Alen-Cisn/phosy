@@ -21,6 +21,7 @@ function PropertiesBox() {
 	const handleFovChange = (e) => {
 		dispatch(changeFov(e.target.value));
 	}
+	
 	return (
 		<div className='PropertiesBox'>
 			

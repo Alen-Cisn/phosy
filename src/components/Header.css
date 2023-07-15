@@ -14,13 +14,37 @@
 	display: flex;
 	align-items: center;
 }
+
 .leftSideHeader > select {
 	margin-left: 10px;
 }
+
 .mainLogo {
 	max-height: 50px;
 }
 
+.translationLabel {
+	font-size: 1rem;
+	line-height: 2rem;
+	display: block;
+}
+
+.translations::before {
+	color: var(--l-primary-color);;
+	font-size: 30px;
+	cursor: pointer;
+	margin-left: 12px;
+}
+
+#translation {
+	display: block;
+	margin: auto;
+	width: 200px;
+}
+
+.translations:hover {
+	filter: brightness(104%);
+}
 
 .credits {
 	color: var(--l-contrast-color);

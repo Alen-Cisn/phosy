@@ -12,27 +12,16 @@ function MaterialsBox() {
 	const dispatch = useDispatch();
 	const materials = useSelector((state) => state.materials.value);
 	
-	const [actionState, setActionState] = useState({action: '', object: null});
+	const [actionState, setActionState] = useState({action: '', show: false, object: null});
 
 	function handleKeyDown (event) {
-		if (event.key === 'Escape') {
-			setActionState({action: '', object: null});
+		if (event?.key === 'Escape' || event === true) {
+			setActionState({action: '', show: false, object: null});
 		}
 	}
 
 	function handleClick(action, e) {
-		switch (action) {
-		case 'edit':
-			// action
-			setActionState({action, object: e});
-			break;
-		case 'delete':
-			// action
-			setActionState({action, object: e});
-			break;
-		default: //delete
-			setActionState({action, object: null});
-		}
+		setActionState({action, show: true, object: e});
 	}
 
 	return (
@@ -55,15 +44,27 @@ function MaterialsBox() {
 				</div>
 				<button className='addMaterial'
 					onClick={() => dispatch(addMaterial())}>
-						<FormattedMessage 
+					<FormattedMessage 
 						id="materialsAdd"
 						defaultMessage="Loading..."/>
 				</button>
-				{actionState.action && 
-					<EditionBox handleKeyDown={handleKeyDown.bind(this)}>
-						<input/>
+				
+					<EditionBox show={actionState.show} handleKeyDown={handleKeyDown.bind(this)} handleDone={handleKeyDown.bind(this)}>
+						<select >
+							<option value='lambertian'>
+								
+							</option>
+							<option value='metal'>
+							</option>
+							<option value='lambertian'>
+								
+							</option>
+						</select>
+						<label htmlFor='indexOfReflection'>
+							Index of reflection:
+						</label>
+						<input id='indexOfReflection' type='numeric' className='numericInput'/>
 					</EditionBox>
-				}
 			</div>
 		</>
 	);

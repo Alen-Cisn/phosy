@@ -6,4 +6,94 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
+	animation: backEdit 0.5s linear 0;
+}
+
+@keyframes backEdit {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 100%;
+	}
+}
+
+.editionBox {
+	min-width: 300px;
+	min-height: 100px;
+	position: relative;
+	transform: translateY(-50%);
+	top: 50%;
+	display: inline-block;
+	margin: auto;
+	padding: 20px;
+	background-color: var(--background-color);
+	border: var(--primary-color) solid 4px;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.editionBox label {
+	margin-right: 12px;
+}
+
+#closeButton {
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+}
+
+#closeButton > i {
+	font-size: 12px;
+	display: block;
+	margin-top: -3px;
+}
+
+#doneButton {
+	font-weight: 600;
+	width: 50px;
+}
+
+#closeButton,
+#doneButton {
+	padding-bottom: 3px;
+	position: absolute;
+	color: var(--contrast-color);
+	border: none;
+	background-color: var(--lll-primary-color);
+	cursor: pointer;
+	border-bottom: var(--llll-primary-color) solid 4px;
+	border-top: var(--lll-primary-color) solid 4px;
+	margin-top: 0;
+}
+
+#doneButton {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+#closeButton,
+#doneButton:hover {
+	filter: brightness(102%);
+}
+
+.editionBox-enter {
+	opacity: 0;
+}
+
+.editionBox-enter-active {
+	opacity: 1;
+	transition: opacity 150ms;
+}
+
+.editionBox-exit {
+	opacity: 1;
+}
+
+.editionBox-exit-active {
+	opacity: 0;
+	transition: opacity 150ms;
 }
