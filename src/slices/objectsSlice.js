@@ -5,11 +5,25 @@ export const objectsSlice = createSlice({
 	initialState: {
 		value: [{
 			id: 0,
-			name: 'Object 0',
+			name: 'Left sphere',
 			type: 'sphere',
-			radius: 1,
-			center: [0, 0, 0],
+			radius: 3,
+			center: [-2, -5, 3],
 			material: 0
+		},{
+			id: 1,
+			name: 'Right sphere',
+			type: 'sphere',
+			radius: 3,
+			center: [2, 4, 3],
+			material: 0
+		},{
+			id: 2,
+			name: 'Bottom',
+			type: 'sphere',
+			radius: 100,
+			center: [0, -100, -50],
+			material: 1
 		}]
 	},
 	reducers: {

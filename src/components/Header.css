@@ -28,7 +28,14 @@
 	line-height: 2rem;
 	display: block;
 }
-
+#translation ,
+#translation option {
+	font-size: 1rem;
+	height: 30px;
+}
+#translation option {
+	width: 90%;
+}
 .translations::before {
 	color: var(--l-primary-color);;
 	font-size: 30px;

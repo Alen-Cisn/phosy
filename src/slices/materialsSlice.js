@@ -6,22 +6,25 @@ export const materialsSlice = createSlice({
 	initialState: {
 		value: [{
 			id: 0,
-			name: 'Material 0',
+			name: 'Metal',
+			type: 'metal',
+			color: '#AAAAAA'
+		},
+		{
+			id: 1,
+			name: 'Bottom',
 			type: 'lambertian',
-			color: '#A0A000'
+			color: '#0000AA'
 		}]
 	},
 	reducers: {
-		addMaterial: (state) => {
+		addMaterial: (state, action) => {
+			let newMaterial = structuredClone(action.payload);
 			let arr = [...state.value];
 			// the array will be ordered by id, this gets the greatest id in memory
-			const nextID = arr.at(-1).id + 1;
-			arr.push({
-				id: nextID,
-				name: 'Material ' + nextID,
-				type: 'lambertian',
-				color: '#A0A0A0'
-			});
+			newMaterial.id = arr.at(-1).id + 1;
+			newMaterial.currentName = undefined;
+			arr.push(newMaterial);
 			state.value = arr;
 		},
 		deleteMaterial: (state, action) => {

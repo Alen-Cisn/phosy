@@ -19,7 +19,7 @@
 	}
 }
 
-.editionBox {
+.DialogBox {
 	min-width: 300px;
 	min-height: 100px;
 	position: relative;
@@ -27,14 +27,14 @@
 	top: 50%;
 	display: inline-block;
 	margin: auto;
-	padding: 20px;
+	padding: 20px 20px 32px 20px;
 	background-color: var(--background-color);
 	border: var(--primary-color) solid 4px;
 	text-align: left;
 	font-size: 0.8em;
 }
 
-.editionBox label {
+.DialogBox label {
 	margin-right: 12px;
 }
 
@@ -80,20 +80,20 @@
 	filter: brightness(102%);
 }
 
-.editionBox-enter {
+.DialogBox-enter {
 	opacity: 0;
 }
 
-.editionBox-enter-active {
+.DialogBox-enter-active {
 	opacity: 1;
 	transition: opacity 150ms;
 }
 
-.editionBox-exit {
+.DialogBox-exit {
 	opacity: 1;
 }
 
-.editionBox-exit-active {
+.DialogBox-exit-active {
 	opacity: 0;
 	transition: opacity 150ms;
 }

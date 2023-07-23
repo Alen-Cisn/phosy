@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Transition } from 'react-transition-group';
 import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 
-import EditionBox from './editionBox';
+import DialogBox from './DialogBox';
 import './Header.css';
 import mainLogo from '../resources/phosy.png';
 import { changeLang } from '../slices/configurationSlice';
@@ -44,7 +44,7 @@ function Header() {
 				Ian Cisneros
 			</div>
 			
-			<EditionBox show={actionState.action} handleKeyDown={handleKeyDown.bind(this)} handleDone={doneChangeLang.bind(this)}>
+			<DialogBox show={actionState.action} handleKeyDown={handleKeyDown.bind(this)} handleDone={doneChangeLang.bind(this)}>
 				<label htmlFor='translation' className='translationLabel'>
 					Choose language
 				</label>
@@ -60,7 +60,7 @@ function Header() {
 					</option>
 				</select>
 				
-			</EditionBox> 
+			</DialogBox> 
 		</div>
 	);
 }

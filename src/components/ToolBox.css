@@ -24,5 +24,7 @@
 	margin-top: auto;
 	padding: 1em;
 	cursor: pointer;
+	margin: auto 10px 10px 10px;
+	border-bottom: var(--llll-primary-color) solid 4px ;
 }
 

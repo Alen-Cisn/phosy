@@ -27,6 +27,7 @@
 .ToolNav > button.nonSelected {
 	border-top: var(--lll-primary-color) solid 4px;
 	margin-top: -4px;
+	height: 44px;
 }
 
 .ToolNav > button:hover{

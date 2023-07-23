@@ -3,9 +3,9 @@ import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 import { FormattedMessage } from 'react-intl';
 import { CSSTransition } from 'react-transition-group';
 
-import './editionBox.css';
+import './DialogBox.css';
 
-function EditionBox({ children, show, handleKeyDown, handleDone }) {
+function DialogBox({ children, show, showDoneButton = true, handleKeyDown, handleDone, className }) {
 	const nodeRef = useRef(null);
 	
 	useEffect(() => {
@@ -22,15 +22,15 @@ function EditionBox({ children, show, handleKeyDown, handleDone }) {
 			in={show}
 			timeout={200}
 			unmountOnExit
-			classNames={"editionBox"}>
+			classNames={"DialogBox"}>
 				
 			<div className='backgroundEdition' onClick={() => handleKeyDown(true)}>
-				<div className='editionBox' ref={nodeRef} onClick={(e) => e.stopPropagation()}>
+				<div className={'DialogBox ' + className} ref={nodeRef} onClick={(e) => e.stopPropagation()}>
 					<button id='closeButton' className='button' onClick={() => handleKeyDown(true)}>
 						<i className='fa-solid fa-user fa-xmark' ></i>
 					</button>
 					{children}
-					<button id='doneButton' className='button' onClick={handleDone}>
+					<button id='doneButton' className='button' onClick={handleDone} hidden={!showDoneButton}>
 							<FormattedMessage 
 							id="editionBoxDone"
 							defaultMessage="Done"/>
@@ -41,4 +41,4 @@ function EditionBox({ children, show, handleKeyDown, handleDone }) {
 	);
 }
 
-export default EditionBox;
+export default DialogBox;

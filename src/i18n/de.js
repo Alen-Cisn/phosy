@@ -1,9 +1,19 @@
 export const translation = {
+	edit: "Bearbeiten {name}",
+	name: "Name",
+	color: "Farbe",
+	fuzz: "Fuzz",
+	
 	materialsAdd: "Material addieren",
+	materialsDelete: "Material löschen?",
+	materialsSelectMaterialType: "Material Typ",
+	materialsDeleteNotPossible: "Es ist nicht möglich, das Material zu beseitigen.", 
+	materialsDeleteObjectsUsing: "Ein oder mehrere Objekte verwenden es derzeit.", 
 	materialsLabel: "Materialien",
 	materialsLambertian: "Lambertsches",
 	materialsMetal: "Metal",
 	materialsDielectric: "Dielektrikum",
+	materialsIxOfReflection: "Reflexionsindex",	 
 
 	objectsAdd: "Objekt addieren",
 	objectsLabel: "Objekte",
