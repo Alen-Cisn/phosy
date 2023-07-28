@@ -8,6 +8,7 @@ export const materialsSlice = createSlice({
 			id: 0,
 			name: 'Metal',
 			type: 'metal',
+			fuzz: 0,
 			color: '#AAAAAA'
 		},
 		{

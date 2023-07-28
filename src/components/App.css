@@ -17,6 +17,7 @@ select option {
 	outline: none;
 	background-color: var(--ll-primary-color);
 	-webkit-appearance: none;
+	appearance: none;
 	margin: 0;
 	border-radius: 0;
 }

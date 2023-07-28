@@ -5,24 +5,9 @@
 	height: 100%;
 }
 
-.Material {
-	padding: 10px;
-	width: 100%;
-	text-align: left;
-	display: flex;
-	justify-content: space-between;
-}
-
 .deleteIcon::before,
 .editionIcon::before {
 	content: "o";
 	display: inline-block;
 	margin-left: 10px;
-}
-
-.materialEditonForm {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1fr 1fr 1fr auto;
-	grid-gap: 5px;
 }

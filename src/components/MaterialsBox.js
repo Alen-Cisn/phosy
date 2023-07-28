@@ -55,7 +55,6 @@ function MaterialsBox() {
 		setActionState({action: actionState.action, object, originalName})
 	}
 
-
 	function handleTypeChange(e) {
 		let object = actionState.object;
 		object.type = e.target.value;
@@ -93,6 +92,7 @@ function MaterialsBox() {
 		let originalName = actionState.originalName;
 		setActionState({action: actionState.action, object, originalName})
 	}
+
 	function handleMaterialSet() {
 		switch (actionState.action) {
 		case 'add':
@@ -177,7 +177,7 @@ function MaterialsBox() {
 						values={{name: actionState.originalName}}
 						defaultMessage="Loading..."/>
 				</h2>
-				<div className='materialEditonForm'>
+				<div className='editonForm'>
 					<label htmlFor='materialName'>
 						<FormattedMessage 
 							id="name"
@@ -250,7 +250,9 @@ function MaterialsBox() {
 		}			
 
 	}
+
 	const editionContent = contentByAction();
+
 	return (
 		<>
 			<div className='MaterialsBox'>
@@ -267,7 +269,9 @@ function MaterialsBox() {
 						</div>
 					)}
 				</div>
-				<button className='addMaterial' onClick={() => handleClick('add')}>
+				<button
+					className='addMaterial'
+					onClick={() => handleClick('add')}>
 					<FormattedMessage 
 						id="materialsAdd"
 						defaultMessage="Loading..."/>

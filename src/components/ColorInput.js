@@ -9,8 +9,26 @@ function ColorInput({id, onChange, defaultValue, className}) {
     }
 
     return (
-        <div id={"displayFor" + id} style={{width: "14px", height: "14px",  backgroundColor: defaultValue}}>
-            <input id={id} onChange={handleChange} className={className} defaultValue={defaultValue} type='color' style={{width: "100%", height: "100%", opacity: "0", position: "relative", top: "-4px"}}/>
+        <div id={"displayFor" + id}
+            style={{
+                width: "14px", 
+                height: "14px",
+                backgroundColor: defaultValue, 
+                border: "2px solid #E28A20"}}>
+            <input 
+                id={id} 
+                onChange={handleChange} 
+                className={className}
+                defaultValue={defaultValue}
+                type='color'
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    opacity: "0",
+                    position: "relative",
+                    top: "-4px",
+                    cursor: "pointer"}}
+                />
         </div>
 
     );

@@ -17,6 +17,10 @@ export const translation = {
 
 	objectsAdd: "Añadir objeto",
 	objectsLabel: "Objectos",
+	objectsSelectObjectType: "Tipo de objecto",
+	objectsSphere: "Esfera",
+	objectsDelete: "¿Eliminar objecto?",
+	objectsCenter: "Centro",
 
 	propertiesLabel: "Propiedades",
 	editionBoxDone: "Hecho",
