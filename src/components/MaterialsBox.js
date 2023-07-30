@@ -7,6 +7,7 @@ import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 import { addMaterial, deleteMaterial, editMaterial } from '../slices/materialsSlice';
 import DialogBox from './DialogBox';
 import ColorInput from './ColorInput';
+import NumericInput from './NumericInput';
 import './MaterialsBox.css';
 
 function MaterialsBox() {
@@ -71,24 +72,14 @@ function MaterialsBox() {
 
 	function handleFuzzChange(e) {
 		let object = actionState.object;
-		if (e.target.validity.valid && e.target.value) {
-			object.fuzz = e.target.value + "";
-		} else {
-			object.fuzz = 0.0;
-			e.target.value = 0.0;
-		}
+		object.fuzz = e.target.value + "";
 		let originalName = actionState.originalName;
 		setActionState({action: actionState.action, object, originalName})
 	}
 
 	function handleFuzzBlur(e) {
 		let object = actionState.object;
-		if (e.target.validity.valid && e.target.value) {
-			object.fuzz = parseFloat(e.target.value);
-		} else {
-			object.fuzz = 0.0;
-			e.target.value = 0.0;
-		}
+		object.fuzz = parseFloat(e.target.value);
 		let originalName = actionState.originalName;
 		setActionState({action: actionState.action, object, originalName})
 	}
@@ -138,9 +129,8 @@ function MaterialsBox() {
 							id="fuzz"
 							defaultMessage="Loading..."/>:
 					</label>
-					<input 
-						type='text' 
-						className='numericInput'
+					<NumericInput 
+						type='text'
 						id='fuzz'
 						pattern='^[0-9]*[\.]?[0-9]*?$'
 						onChange={handleFuzzChange}

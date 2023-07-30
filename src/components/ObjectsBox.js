@@ -6,6 +6,7 @@ import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 
 import { addObject, deleteObject, editObject } from '../slices/objectsSlice';
 import DialogBox from './DialogBox';
+import NumericInput from './NumericInput';
 import './ObjectsBox.css';
 
 function ObjectsBox() {
@@ -18,6 +19,24 @@ function ObjectsBox() {
 
 	const materials = useSelector((state) => state.materials.value);
 	
+	function handleCoordXChange(e) {
+		let object = structuredClone(currentObject);
+		object.center[0] = e.target.value;
+		setCurrentObject(object);
+	}
+
+	function handleCoordYChange(e) {
+		let object = structuredClone(currentObject);
+		object.center[1] = e.target.value;
+		setCurrentObject(object);
+	}
+
+	function handleCoordZChange(e) {
+		let object = structuredClone(currentObject);
+		object.center[2] = e.target.value;
+		setCurrentObject(object);
+	}
+
 	function handleKeyDown (e) {
 		if (e?.key === 'Escape' || e === true) {
 			setCurrentObject({});
@@ -83,22 +102,44 @@ function ObjectsBox() {
 	
 		switch (currentObject?.type) {
 		case 'sphere':
-			// return (
-			// 	<>
-			// 		<label htmlFor='indexOfReflection'>
-			// 			<FormattedMessage 
-			// 				id="color"
-			// 				defaultMessage="Loading..."/>:
-			// 		</label>
-			// 		<ColorInput id='materialColor' onChange={handleColorChange} defaultValue={currentObject.object?.color}/>
-			// 	</>
-			// 	);
 			return (
-			<label style={{}}>
-				<FormattedMessage 
-					id="objectsCenter"
-					defaultMessage="Loading..."/>:
-			</label>);
+				<>
+					<label >
+						<FormattedMessage 
+							id="objectsCenter"
+							defaultMessage="Loading..."/>:
+					</label>
+					<div className='coordinatesInputs'>
+						<label htmlFor='coordX'>
+							X:
+						</label>
+						<NumericInput 
+							type='text' 
+							className='numericInput'
+							id='coordX'
+							onChange={handleCoordXChange}
+							value={currentObject.center[0]}/>
+						<label htmlFor='coordX'>
+							Y:
+						</label>
+						<NumericInput 
+							type='text' 
+							className='numericInput'
+							id='coordY'
+							pattern='^[0-9]*[\.]?[0-9]*?$'
+							onChange={handleCoordYChange}
+							value={currentObject.center[1]}/>
+						<label htmlFor='coordX'>
+							Z:
+						</label>
+						<NumericInput 
+							type='text' 
+							className='numericInput'
+							id='coordZ'
+							onChange={handleCoordZChange}
+							value={currentObject.center[2]}/> 
+					</div>
+				</>);
 		case 'triangle':
 		case 'toroid':
 		default:
@@ -131,12 +172,12 @@ function ObjectsBox() {
 						onChange={handleNameChange}
 						onBlur={handleNameBlur}
 						defaultValue={currentObject?.name}/>
-					<label>
+					{/*<label>
 						<FormattedMessage 
 							id="objectsSelectObjectType"
 							defaultMessage="Loading..."/>:
 					</label>
-					<select onChange={handleTypeChange} defaultValue={currentObject?.type}>
+					 <select onChange={handleTypeChange} defaultValue={currentObject?.type}>
 						<option value='sphere'>
 							<FormattedMessage 
 								id="objectsSphere"
@@ -151,8 +192,8 @@ function ObjectsBox() {
 							<FormattedMessage 
 								id="materialsToroid"
 								defaultMessage="Loading..."/>
-						</option> */}
-					</select>
+						</option> * /}
+					</select> */}
 
 					{propertiesByObjectType()}
 				</div>

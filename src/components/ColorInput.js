@@ -27,7 +27,8 @@ function ColorInput({id, onChange, defaultValue, className}) {
                     opacity: "0",
                     position: "relative",
                     top: "-4px",
-                    cursor: "pointer"}}
+                    cursor: "pointer"
+                    }}
                 />
         </div>
 

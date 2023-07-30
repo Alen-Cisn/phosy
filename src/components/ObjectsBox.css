@@ -9,3 +9,10 @@
 	margin: 0 5px;
 	cursor: pointer;
 }
+
+.coordinatesInputs > label {
+	margin-right: 6px;
+}
+.coordinatesInputs > input {
+	margin-right: 12px;
+}
