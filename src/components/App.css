@@ -78,10 +78,10 @@ input[type="text"] {
 
 /*--Ranges input--*/
 .rangeInput {
-	height: 15px;
+	height: 8px;
 	-webkit-appearance: none;
 	appearance: none;
-	width: 65%;
+	width: 120px;
 }
 
 .rangeInput:focus,

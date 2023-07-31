@@ -22,9 +22,9 @@
 	justify-content: space-between;
 }
 
-.ToolBox > div:last-child > div:last-child {
+/* .ToolBox > div:last-child > div:last-child {
 	border-top: #33333352 solid 1px;
-}
+} */
 
 .ToolBox > div:last-child > button {
 	border: none;

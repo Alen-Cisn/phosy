@@ -12,7 +12,7 @@
 	text-align: left;
 }
 
-.PropertActions>i {
+.PropertActions > i {
 	margin: 0 5px;
 	cursor: pointer;
 }
@@ -21,6 +21,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-flow: column;
+	margin-bottom: 20px;
 }
 
 .propertiesCategoryTitle {
@@ -28,6 +29,23 @@
 	text-align: left;
 	margin: 0;
 	font-weight: normal;
+	font-size: 1rem;
 }
 
-/*--/Ranges input--*/
+.PropertiesBox label {
+	display: inline-block;
+	min-width: 15px;
+	font-size: 0.8rem;
+}
+
+.PropertiesBox .numericInput {
+	width: 30px;
+}
+
+.aspectRatio input {
+	margin: auto 10px;
+}
+
+#horizontalResolution {
+	margin-right: 10px;
+}

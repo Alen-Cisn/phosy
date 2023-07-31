@@ -36,12 +36,12 @@ function Header() {
 
 	return (
 		<div className='Header'>
-			<div className='leftSideHeader'>
-				<img src={mainLogo} className='mainLogo' alt="phosy"/>
+			<img src={mainLogo} className='mainLogo' alt="phosy"/>
+			<div className='rightSideHeader'>
 				<i className='fa-solid fa-user fa-language translations' onClick={handleClick}/>
-			</div>
-			<div className='credits'>
-				Ian Cisneros
+				<div className='credits'>
+					Ian Cisneros
+				</div>
 			</div>
 			
 			<DialogBox show={actionState.action} handleKeyDown={handleKeyDown.bind(this)} handleDone={doneChangeLang.bind(this)}>

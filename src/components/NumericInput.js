@@ -1,5 +1,5 @@
 
-function NumericInput({id, onChange, onBlur, value, defaultValue, className}) {
+function NumericInput({id, onChange, onBlur, min, max, value, disabled, defaultValue, className}) {
 
 	function handleKeyDown(event) {
         console.log(event)
@@ -18,9 +18,11 @@ function NumericInput({id, onChange, onBlur, value, defaultValue, className}) {
     }
 
     function handleBlur(e) {
-		if (!e.target.value || !e.target.validity.valid) {
+		if (!e.target.value || !parseFloat(e.target.value) ) {
 			e.target.value = 0.0;
-		}
+		} else {
+            e.target.value = parseFloat(e.target.value);
+        }
 
         if (onBlur) {
             onBlur(e);
@@ -37,6 +39,9 @@ function NumericInput({id, onChange, onBlur, value, defaultValue, className}) {
             onChange={onChange}
             onBlur={handleBlur}
             value={value}
+            max={max}
+            min={min}
+            disabled={disabled}
             defaultValue={defaultValue}/>
 
     );

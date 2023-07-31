@@ -43,6 +43,12 @@ function ObjectsBox() {
 			setCurrentAction('');
 		}
 	}
+	
+	function handleRadiusChange(e) {
+		let object = structuredClone(currentObject);
+		object.radius = e.target.value;
+		setCurrentObject(object);
+	}
 
 	function handleClick(action, e) {
 		setCurrentAction(action);
@@ -119,7 +125,7 @@ function ObjectsBox() {
 							id='coordX'
 							onChange={handleCoordXChange}
 							value={currentObject.center[0]}/>
-						<label htmlFor='coordX'>
+						<label htmlFor='coordY'>
 							Y:
 						</label>
 						<NumericInput 
@@ -129,7 +135,7 @@ function ObjectsBox() {
 							pattern='^[0-9]*[\.]?[0-9]*?$'
 							onChange={handleCoordYChange}
 							value={currentObject.center[1]}/>
-						<label htmlFor='coordX'>
+						<label htmlFor='coordZ'>
 							Z:
 						</label>
 						<NumericInput 
@@ -139,6 +145,17 @@ function ObjectsBox() {
 							onChange={handleCoordZChange}
 							value={currentObject.center[2]}/> 
 					</div>
+					<label htmlFor='radius'>
+						<FormattedMessage 
+							id="objectsRadius"
+							defaultMessage="Loading..."/>:
+					</label>
+					<NumericInput 
+						type='text' 
+						className='numericInput'
+						id='radius'
+						onChange={handleRadiusChange}
+						value={currentObject.radius}/> 
 				</>);
 		case 'triangle':
 		case 'toroid':

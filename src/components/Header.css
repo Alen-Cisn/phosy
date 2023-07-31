@@ -10,13 +10,9 @@
 	align-items: center;
 }
 
-.leftSideHeader {
+.rightSideHeader {
 	display: flex;
 	align-items: center;
-}
-
-.leftSideHeader > select {
-	margin-left: 10px;
 }
 
 .mainLogo {
@@ -55,4 +51,5 @@
 
 .credits {
 	color: var(--l-contrast-color);
+	margin-left: 10px;
 }

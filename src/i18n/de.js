@@ -21,7 +21,12 @@ export const translation = {
 	objectsSphere: "Kugel",
 	objectsDelete: "Objekte löschen?",
 	objectsCenter: "Center",
+	objectsRadius: "Radius",
 	
 	propertiesLabel: "Eigenschaften",
+	propertiesAspectRatio: "Seitenverhältnis",
+	propertiesResolution: "Bildauflösung",
+	propertiesCameraCoordinates: "Kamerakoordinaten",
+	
 	editionBoxDone: "Fertig",
 };
