@@ -5,6 +5,7 @@ import { Canvas, useFrame, Vector3 } from '@react-three/fiber';
 import * as THREE from 'three';
 import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
 import usePersonControls from '../hooks/usePersonControls';
+import { degToRad } from 'three/src/math/MathUtils';
 
 function meshMaterial(material) {
 	switch (material.type) {
@@ -17,8 +18,9 @@ function meshMaterial(material) {
 
 	}
 }
+
 const PointCam = () => {
-	const { forward, backward, left, right } = usePersonControls();
+	const { up, down, left, right } = usePersonControls();
 	
 	useFrame((state) => {
 		// Calculating front/side movement ...
@@ -26,16 +28,18 @@ const PointCam = () => {
 		let sideVector = new THREE.Vector3(0, 0, 0);
 		let direction = new THREE.Vector3(0, 0, 0);
 
-		frontVector.set(0, 0, Number(forward) - Number(backward))
-		sideVector.set(Number(right) - Number(left), 0, 0)
+		sideVector.set(0, Number(left) - Number(right), 0);
+		frontVector.set(Number(up) - Number(down), 0, 0);
 
-		frontVector.set(0, 0, Number(forward) - Number(backward))
-		sideVector.set(Number(right) - Number(left), 0, 0)
+		sideVector.set(0, Number(right) - Number(left),0 );
+		frontVector.set(Number(up) - Number(down), 0, 0);
 		direction
 			.subVectors(frontVector, sideVector)
 			.normalize()
-			.multiplyScalar(0.3);
-		state.camera.lookAt(direction);
+			.multiplyScalar(1);
+		let currDir = new THREE.Vector3(0, 0, 0);
+		state.camera.getWorldDirection(currDir);
+		state.camera.rotateOnAxis(direction, degToRad(1));
 
 
 	});
@@ -69,6 +73,16 @@ function Display() {
 				})}
 				<PointCam/>
 			</Canvas>
+			<div className='directions'>
+				<div className='direction' id='direction_up'>
+				</div>
+				<div className='direction' id='direction_down'>
+				</div>
+				<div className='direction' id='direction_left'>
+				</div>
+				<div className='direction' id='direction_right'>
+				</div>
+			</div>
 		</div>
 	);
 }

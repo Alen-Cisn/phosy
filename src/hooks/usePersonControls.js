@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 const usePersonControls = () => {
 	const keys = {
-		ArrowUp: 'forward',
-		ArrowDown: 'backward',
+		ArrowUp: 'up',
+		ArrowDown: 'down',
 		ArrowLeft: 'left',
 		ArrowRight: 'right'
 	};
@@ -11,8 +11,8 @@ const usePersonControls = () => {
 	const moveFieldByKey = (key) => keys[key];
 
 	const [movement, setMovement] = useState({
-		forward: false,
-		backward: false,
+		up: false,
+		down: false,
 		left: false,
 		right: false
 	});
@@ -20,9 +20,11 @@ const usePersonControls = () => {
 	useEffect(() => {
 		const handleKeyDown = (e) => {
 			setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }));
+			document.getElementById("direction_" + moveFieldByKey(e.code))?.classList.add("directionSelected");
 		};
 		const handleKeyUp = (e) => {
 			setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: false }));
+			document.getElementById("direction_" + moveFieldByKey(e.code))?.classList.remove("directionSelected");
 		};
 		document.addEventListener('keydown', handleKeyDown);
 		document.addEventListener('keyup', handleKeyUp);
