@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';// import { useSelector } from 'react-redux';
+import * as THREE from 'three';
 
 const usePersonControls = () => {
 	const keys = {

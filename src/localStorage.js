@@ -1,4 +1,5 @@
 
+import * as THREE from 'three';
 
 export const loadState = () => {
 	try {
@@ -6,7 +7,11 @@ export const loadState = () => {
 		if (serializedState === null) {
 			return undefined;
 		}
-		return JSON.parse(serializedState);
+		const stateSaved = JSON.parse(serializedState);
+		var loader = new THREE.ObjectLoader();
+		const result = loader.parse(stateSaved.properties.camera);
+		stateSaved.properties.camera = result;
+		return stateSaved;
 	} catch (err) {
 		return undefined;
 	}

@@ -1,5 +1,7 @@
 // import { useSelector } from 'react-redux';
+import * as THREE from 'three';
 import { createSlice } from '@reduxjs/toolkit'
+import { degToRad } from 'three/src/math/MathUtils';
 
 export const propertiesSlice = createSlice({
 	name: 'properties',
@@ -9,10 +11,7 @@ export const propertiesSlice = createSlice({
 			x: 6
 		},
 		horizontalResolution: 600,
-		fov: 90,
-		near: 0.001,
-		far: 100,
-		cameraCoordinates: [0, 0, 0]
+		camera: new THREE.PerspectiveCamera(90, 1.7777777777, 0.001, 1000)
 	},
 	reducers: {
 		changeRatioX: (state, action) => {
@@ -22,24 +21,35 @@ export const propertiesSlice = createSlice({
 			state.aspectRatio.y = action.payload;
 		},
 		changeCameraCoordinateX: (state, action) => {
-			state.cameraCoordinates[0] = action.payload;
+			state.camera.position.x = action.payload;
 		},
 		changeCameraCoordinateY: (state, action) => {
-			state.cameraCoordinates[1] = action.payload;
+			state.camera.position.y = action.payload;
 		},
 		changeCameraCoordinateZ: (state, action) => {
-			state.cameraCoordinates[2] = action.payload;
+			state.camera.position.z = action.payload;
 		},
 		changeResolution: (state, action) => {
 			state.horizontalResolution = action.payload;
 		},
 		changeFov: (state, action) => {
-			state.aspectRatio.fov = action.payload;
+			state.camera.fov = action.payload;
+		},
+		changeWorldDirection: (state, action) => {
+			state.camera.rotateOnAxis(action.payload, degToRad(1));
 		}
 	}
 })
 
 // Action creators are generated for each case reducer function
-export const { changeRatioX, changeRatioY, changeFov, changeCameraCoordinateX, changeCameraCoordinateY, changeCameraCoordinateZ, changeResolution } = propertiesSlice.actions;
+export const { 
+	changeRatioX, 
+	changeRatioY,
+	changeFov,
+	changeCameraCoordinateX,
+	changeCameraCoordinateY,
+	changeCameraCoordinateZ,
+	changeResolution,
+	changeWorldDirection } = propertiesSlice.actions;
 
 export default propertiesSlice.reducer;

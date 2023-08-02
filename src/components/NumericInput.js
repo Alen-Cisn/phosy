@@ -2,7 +2,6 @@
 function NumericInput({id, onChange, onBlur, min, max, value, disabled, defaultValue, className}) {
 
 	function handleKeyDown(event) {
-        console.log(event)
         if (event.key.length === 1) {
             if (event.key.match(/^[\d]$/) 
                 || (event.key === '.' && event.target.value.indexOf('.') === -1)

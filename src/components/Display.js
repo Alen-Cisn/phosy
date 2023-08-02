@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './Display.css';
 import { Canvas, useFrame, Vector3 } from '@react-three/fiber';
@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
 import usePersonControls from '../hooks/usePersonControls';
 import { degToRad } from 'three/src/math/MathUtils';
+import { changeWorldDirection } from '../slices/propertiesSlice';
 
 function meshMaterial(material) {
 	switch (material.type) {
@@ -19,45 +20,41 @@ function meshMaterial(material) {
 	}
 }
 
-const PointCam = () => {
+const PointCam = ({dispatch}) => {
 	const { up, down, left, right } = usePersonControls();
 	
-	useFrame((state) => {
-		// Calculating front/side movement ...
-		let frontVector = new THREE.Vector3(0, 0, 0);
-		let sideVector = new THREE.Vector3(0, 0, 0);
-		let direction = new THREE.Vector3(0, 0, 0);
+	useFrame(({camera}) => {
+		if (left || right || up || down ) {
+			// Calculating front/side movement ...
+			let frontVector = new THREE.Vector3(0, 0, 0);
+			let sideVector = new THREE.Vector3(0, 0, 0);
+			let direction = new THREE.Vector3(0, 0, 0);
 
-		sideVector.set(0, Number(left) - Number(right), 0);
-		frontVector.set(Number(up) - Number(down), 0, 0);
+			sideVector.set(0, Number(right) - Number(left),0 );
+			frontVector.set(Number(up) - Number(down), 0, 0);
+			direction
+				.subVectors(frontVector, sideVector)
+				.normalize();
 
-		sideVector.set(0, Number(right) - Number(left),0 );
-		frontVector.set(Number(up) - Number(down), 0, 0);
-		direction
-			.subVectors(frontVector, sideVector)
-			.normalize()
-			.multiplyScalar(1);
-		let currDir = new THREE.Vector3(0, 0, 0);
-		state.camera.getWorldDirection(currDir);
-		state.camera.rotateOnAxis(direction, degToRad(1));
-
+				dispatch(changeWorldDirection(direction));
+			
+		}
 
 	});
 	return null
 }
 
 function Display() {
+	const dispatch = useDispatch();
 	const objects = useSelector((state) => state.objects.value);
 	const materials = useSelector((state) => state.materials.value);
 	const properties = useSelector((state) => state.properties);
 
-	const camera = new THREE.PerspectiveCamera(90, 1.7777777777, 0.001, 1000);
-	camera.position.set(...properties.cameraCoordinates);
 	return (
 		<div className='Display'>
 			<Canvas
 				className='Canvas'
-				camera={camera}
+				camera={properties.camera}
 			>
 				<ambientLight />
 				{objects.map((e, i) => {
@@ -71,7 +68,7 @@ function Display() {
 
 					</mesh>
 				})}
-				<PointCam/>
+				<PointCam dispatch={dispatch}/>
 			</Canvas>
 			<div className='directions'>
 				<div className='direction' id='direction_up'>

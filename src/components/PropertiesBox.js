@@ -136,7 +136,7 @@ function PropertiesBox() {
 						className='numericInput'
 						id='cameraCoordX'
 						onChange={handleCoordXChange}
-						value={properties.cameraCoordinates[0]}/>
+						defaultValue={properties.camera.position.x}/>
 					<label htmlFor='cameraCoordY'>
 						Y:
 					</label>
@@ -146,7 +146,7 @@ function PropertiesBox() {
 						id='cameraCoordY'
 						pattern='^[0-9]*[\.]?[0-9]*?$'
 						onChange={handleCoordYChange}
-						value={properties.cameraCoordinates[1]}/>
+						defaultValue={properties.camera.position.y}/>
 					<label htmlFor='cameraCoordZ'>
 						Z:
 					</label>
@@ -155,7 +155,7 @@ function PropertiesBox() {
 						className='numericInput'
 						id='cameraCoordZ'
 						onChange={handleCoordZChange}
-						value={properties.cameraCoordinates[2]}/> 
+						defaultValue={properties.camera.position.z}/> 
 				</div>
 			</div>
 		</div>

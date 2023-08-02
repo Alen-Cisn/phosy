@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers  } from '@reduxjs/toolkit';
 import tabSelectReducer from './slices/tabSelectSlice';
 import materialsReducer from './slices/materialsSlice';
 import objectsReducer from './slices/objectsSlice';
@@ -20,6 +20,9 @@ const preloadedState = loadState();
 const store = configureStore({
 	reducer,
 	preloadedState,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+		serializableCheck: false
+	  }),
 });
 
 
