@@ -19,6 +19,7 @@ export const translation = {
 	objectsLabel: "Objects",
 	objectsSelectObjectType: "Object type",
 	objectsSphere: "Sphere",
+	objectsMaterial: "Material",
 	objectsDelete: "Delete object?",
 	objectsCenter: "Center",
 	objectsRadius: "Radius",

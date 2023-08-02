@@ -36,7 +36,11 @@ function ObjectsBox() {
 		object.center[2] = e.target.value;
 		setCurrentObject(object);
 	}
-
+	function handleMaterialChange(e) {
+		let object = structuredClone(currentObject);
+		object.material = e.target.value;
+		setCurrentObject(object);
+	}
 	function handleKeyDown (e) {
 		if (e?.key === 'Escape' || e === true) {
 			setCurrentObject({});
@@ -189,28 +193,21 @@ function ObjectsBox() {
 						onChange={handleNameChange}
 						onBlur={handleNameBlur}
 						defaultValue={currentObject?.name}/>
-					{/*<label>
+					<label htmlFor='objectMaterial'>
 						<FormattedMessage 
-							id="objectsSelectObjectType"
+							id="objectsMaterial"
 							defaultMessage="Loading..."/>:
 					</label>
-					 <select onChange={handleTypeChange} defaultValue={currentObject?.type}>
-						<option value='sphere'>
-							<FormattedMessage 
-								id="objectsSphere"
-								defaultMessage="Loading..."/>
-						</option>
-						{/* <option value='triangle'>
-							<FormattedMessage 
-								id="materialsTriangle"
-								defaultMessage="Loading..."/>
-						</option>
-						<option value='toroid'>
-							<FormattedMessage 
-								id="materialsToroid"
-								defaultMessage="Loading..."/>
-						</option> * /}
-					</select> */}
+					<select 
+						id='objectMaterial' 
+						type='text' 
+						onChange={handleMaterialChange}
+						value={currentObject?.material}>
+						{materials.map((e) => 
+							<option value={e.id}>{e.name}</option>
+						)}
+
+					</select>
 
 					{propertiesByObjectType()}
 				</div>
