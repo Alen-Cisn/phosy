@@ -6,18 +6,6 @@ import * as THREE from 'three';
 import usePersonControls from '../hooks/usePersonControls';
 import { changeWorldDirection } from '../slices/propertiesSlice';
 
-function meshMaterial(material) {
-	switch (material.type) {
-		case 'lambertian':
-			return <meshLambertMaterial
-				args={[{ color: material.color, reflectivity: 1, side: THREE.DoubleSide }]} />;
-		case 'metal':
-			return <meshStandardMaterial
-			args={[{ color: material.color, roughness: 0,side: THREE.DoubleSide }]}/>
-
-	}
-}
-
 const PointCam = ({dispatch}) => {
 	const { up, down, left, right } = usePersonControls();
 	
@@ -60,9 +48,8 @@ function Display() {
 					return <mesh key={i}
 						visible={true}
 						position={e.center} >
-							{meshMaterial(material)}
 						<meshLambertMaterial
-							args={[{ color: material.color, reflectivity: 1, side: THREE.DoubleSide }]} />
+							args={[{ color: material.color, side: THREE.DoubleSide }]} />
 						<sphereGeometry args={[e.radius]} />
 
 					</mesh>
