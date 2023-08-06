@@ -5,6 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import { changeRatioY, 
 	changeRatioX,
 	changeFov,
+	changeSamplesPerPixel,
+	changeMaxDepth,
 	changeCameraCoordinateX,
 	changeCameraCoordinateY,
 	changeCameraCoordinateZ,
@@ -28,6 +30,14 @@ function PropertiesBox() {
 
 	const handleFovChange = (e) => {
 		dispatch(changeFov(e.target.value));
+	}
+
+	const handleSamplesPerPixelChange = (e) => {
+		dispatch(changeSamplesPerPixel(e.target.value));
+	}
+
+	const handleMaxDepthChange = (e) => {
+		dispatch(changeMaxDepth(e.target.value));
 	}
 	
 	function handleCoordXChange(e) {
@@ -123,7 +133,7 @@ function PropertiesBox() {
 			<div className='propertiesCategory'>
 				<h3 className='propertiesCategoryTitle'>
 					<FormattedMessage 
-						id="propertiesCameraCoordinates	"
+						id="propertiesCameraCoordinates"
 						defaultMessage="Loading..."/>
 				</h3>
 				
@@ -133,7 +143,6 @@ function PropertiesBox() {
 					</label>
 					<NumericInput 
 						type='text'
-						className='numericInput'
 						id='cameraCoordX'
 						onChange={handleCoordXChange}
 						defaultValue={properties.camera.position.x}/>
@@ -142,9 +151,7 @@ function PropertiesBox() {
 					</label>
 					<NumericInput 
 						type='text'
-						className='numericInput'
 						id='cameraCoordY'
-						pattern='^[0-9]*[\.]?[0-9]*?$'
 						onChange={handleCoordYChange}
 						defaultValue={properties.camera.position.y}/>
 					<label htmlFor='cameraCoordZ'>
@@ -156,6 +163,50 @@ function PropertiesBox() {
 						id='cameraCoordZ'
 						onChange={handleCoordZChange}
 						defaultValue={properties.camera.position.z}/> 
+				</div>
+			</div>
+			<div className='propertiesCategory'>
+				<h3 className='propertiesCategoryTitle'>
+					<FormattedMessage 
+						id="propertiesImageProperties"
+						defaultMessage="Loading..."/>
+				</h3>
+				<div className='cameraProperties'>
+					<label htmlFor='fov'>
+						FOV:
+					</label>
+					<NumericInput 
+						type='text'
+						className='numericInput'
+						id='fov'
+						onChange={handleFovChange}
+						defaultValue={properties.camera.fov}/>
+				</div>
+				<div className='cameraProperties'>
+					<label htmlFor='samplesPerPixel'>
+						<FormattedMessage 
+							id="propertiesSaplesPerPixel"
+							defaultMessage="Loading..."/>:
+					</label>
+					<NumericInput 
+						type='text'
+						className='numericInput'
+						id='samplesPerPixel'
+						onChange={handleSamplesPerPixelChange}
+						defaultValue={properties.samplesPerPixel}/>
+				</div>
+				<div className='cameraProperties'>
+					<label htmlFor='maxDepth'>
+						<FormattedMessage 
+							id="propertiesMaxDepth"
+							defaultMessage="Loading..."/>:
+					</label>
+					<NumericInput 
+						type='text'
+						className='numericInput'
+						id='maxDepth'
+						onChange={handleMaxDepthChange}
+						defaultValue={properties.maxDepth}/>
 				</div>
 			</div>
 		</div>

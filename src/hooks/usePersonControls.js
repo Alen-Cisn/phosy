@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';// import { useSelector } from 'react-redux';
-import * as THREE from 'three';
+import { useState, useEffect } from 'react';
 
 const usePersonControls = () => {
 	const keys = {
@@ -20,8 +19,10 @@ const usePersonControls = () => {
 
 	useEffect(() => {
 		const handleKeyDown = (e) => {
-			setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }));
-			document.getElementById("direction_" + moveFieldByKey(e.code))?.classList.add("directionSelected");
+			if (document.getElementById("Display").matches(':hover')) {
+				setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }));
+				document.getElementById("direction_" + moveFieldByKey(e.code))?.classList.add("directionSelected");
+			}
 		};
 		const handleKeyUp = (e) => {
 			setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: false }));

@@ -11,7 +11,9 @@ export const propertiesSlice = createSlice({
 			x: 6
 		},
 		horizontalResolution: 600,
-		camera: new THREE.PerspectiveCamera(90, 1.7777777777, 0.001, 1000)
+		samplesPerPixel: 20,
+		maxDepth: 20,
+		camera: new THREE.PerspectiveCamera(70, 1.7777777777, 0.001, 1000)
 	},
 	reducers: {
 		changeRatioX: (state, action) => {
@@ -34,6 +36,13 @@ export const propertiesSlice = createSlice({
 		},
 		changeFov: (state, action) => {
 			state.camera.fov = action.payload;
+			state.camera.updateProjectionMatrix();
+		},
+		changeSamplesPerPixel: (state, action) => {
+			state.samplesPerPixel = action.payload;
+		},
+		changeMaxDepth: (state, action) => {
+			state.maxDepth = action.payload;
 		},
 		changeWorldDirection: (state, action) => {
 			state.camera.rotateOnAxis(action.payload, degToRad(1));
@@ -46,6 +55,8 @@ export const {
 	changeRatioX, 
 	changeRatioY,
 	changeFov,
+	changeSamplesPerPixel,
+	changeMaxDepth,
 	changeCameraCoordinateX,
 	changeCameraCoordinateY,
 	changeCameraCoordinateZ,

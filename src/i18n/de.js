@@ -28,6 +28,8 @@ export const translation = {
 	propertiesAspectRatio: "Seitenverhältnis",
 	propertiesResolution: "Bildauflösung",
 	propertiesCameraCoordinates: "Kamerakoordinaten",
-	
+	propertiesImageProperties: "Bildeigenschaften",
+	propertiesSaplesPerPixel: "Samples per pixel",
+	propertiesMaxDepth: "",
 	editionBoxDone: "Fertig",
 };

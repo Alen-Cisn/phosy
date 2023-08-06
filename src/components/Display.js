@@ -1,11 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Display.css';
-import { Canvas, useFrame, Vector3 } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
 import usePersonControls from '../hooks/usePersonControls';
-import { degToRad } from 'three/src/math/MathUtils';
 import { changeWorldDirection } from '../slices/propertiesSlice';
 
 function meshMaterial(material) {
@@ -15,7 +13,7 @@ function meshMaterial(material) {
 				args={[{ color: material.color, reflectivity: 1, side: THREE.DoubleSide }]} />;
 		case 'metal':
 			return <meshStandardMaterial
-			/>
+			args={[{ color: material.color, roughness: 0,side: THREE.DoubleSide }]}/>
 
 	}
 }
@@ -23,7 +21,7 @@ function meshMaterial(material) {
 const PointCam = ({dispatch}) => {
 	const { up, down, left, right } = usePersonControls();
 	
-	useFrame(({camera}) => {
+	useFrame(() => {
 		if (left || right || up || down ) {
 			// Calculating front/side movement ...
 			let frontVector = new THREE.Vector3(0, 0, 0);
@@ -36,7 +34,7 @@ const PointCam = ({dispatch}) => {
 				.subVectors(frontVector, sideVector)
 				.normalize();
 
-				dispatch(changeWorldDirection(direction));
+			dispatch(changeWorldDirection(direction));
 			
 		}
 
@@ -51,7 +49,7 @@ function Display() {
 	const properties = useSelector((state) => state.properties);
 
 	return (
-		<div className='Display'>
+		<div className='Display' id='Display'>
 			<Canvas
 				className='Canvas'
 				camera={properties.camera}
@@ -62,6 +60,7 @@ function Display() {
 					return <mesh key={i}
 						visible={true}
 						position={e.center} >
+							{meshMaterial(material)}
 						<meshLambertMaterial
 							args={[{ color: material.color, reflectivity: 1, side: THREE.DoubleSide }]} />
 						<sphereGeometry args={[e.radius]} />

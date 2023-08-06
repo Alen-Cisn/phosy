@@ -49,3 +49,9 @@
 #horizontalResolution {
 	margin-right: 10px;
 }
+
+.cameraProperties {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
