@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
-
 import { addMaterial, deleteMaterial, editMaterial } from '../slices/materialsSlice';
 import DialogBox from './DialogBox';
 import ColorInput from './ColorInput';

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import 'https://kit.fontawesome.com/7fbf3ff9d4.js';
 import { FormattedMessage } from 'react-intl';
 import { CSSTransition } from 'react-transition-group';
 

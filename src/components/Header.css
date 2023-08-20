@@ -10,7 +10,7 @@
 	align-items: center;
 }
 
-.rightSideHeader {
+.rightSideHeader, .leftSideHeader {
 	display: flex;
 	align-items: center;
 }
@@ -24,6 +24,11 @@
 	line-height: 2rem;
 	display: block;
 }
+
+.translations {
+	margin-left: 20px;
+}
+
 #translation ,
 #translation option {
 	font-size: 1rem;
